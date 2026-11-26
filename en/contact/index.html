@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080811">
+  <meta name="description" content="NYX Messenger contact options">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NYX Messenger">
+  <meta property="og:title" content="Get in touch — NYX Messenger">
+  <meta property="og:description" content="NYX Messenger contact options">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://nyx-messenger.ru/en/contact/">
+  <link rel="alternate" hreflang="ru" href="https://nyx-messenger.ru/ru/contact/">
+  <link rel="alternate" hreflang="en" href="https://nyx-messenger.ru/en/contact/">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>Get in touch — NYX Messenger</title>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/subpage.css">
+</head>
+<body>
+<canvas id="particles-bg" aria-hidden="true"></canvas>
+<header class="wrap nav">
+  <a class="brand" href="/en/" aria-label="NYX Messenger"><img src="/assets/nyx-logo.png" alt="NYX"><span>NYX</span></a>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation">☰</button>
+  <nav class="navlinks" id="siteNav"><a href="/en/">Home</a><a href="/en/#features">Features</a><a href="/en/#security">Security</a><a href="/en/#download">Download</a><a href="/en/faq/">FAQ</a><a href="/en/legal/">Legal</a></nav>
+  <div class="navright">
+    <button class="lang" id="lang" type="button" aria-label="Switch language to Russian">RU</button>
+    <a class="btn small" href="/en/contact/">Contact</a>
+  </div>
+</header>
+<main>
+  <section class="wrap sub-hero">
+    <div class="crumb"><a href="/en/">Home</a> / Contact</div>
+    <div class="badge"><span class="dot" aria-hidden="true"></span><span>NYX MESSENGER · CONTACT</span></div>
+    <h1>Get in <span class="gradient">touch.</span></h1>
+    <p class="sub-lead">Choose the most convenient way to reach the NYX team.</p>
+  </section>
+  <section class="wrap cards-grid">
+    <article class="card reveal">
+      <div class="icon" aria-hidden="true">⌘</div>
+      <h2>GitHub</h2>
+      <p>Source code, project updates, and bug reports.</p>
+      <div class="card-foot"><span class="status-pill">Link coming soon</span></div>
+    </article>
+    <article class="card reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></div>
+      <h2>Telegram</h2>
+      <p>Project news, announcements, and community chat.</p>
+      <div class="card-foot"><span class="status-pill">Link coming soon</span></div>
+    </article>
+    <article class="card reveal">
+      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+      <h2>Email</h2>
+      <p>Questions, suggestions, and help with NYX Messenger.</p>
+      <div class="card-foot">
+        <a class="btn small" href="mailto:nyx.messenger@gmail.com">Send an email ↗</a>
+        <button class="btn ghost small" id="copyEmail" type="button">Copy address</button>
+        <div class="contact-address">nyx.messenger@gmail.com</div>
+      </div>
+    </article>
+  </section>
+  <section class="wrap cta-wrap">
+    <div class="cta reveal">
+      <div>
+        <h2>Privacy should feel <span class="gradient">simple.</span></h2>
+        <p>Have answers to check before writing? Visit the FAQ or legal docs.</p>
+      </div>
+      <a class="btn" href="/en/faq/">Open FAQ →</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="/en/"><img src="/assets/nyx-logo.png" alt=""><span>NYX</span></a>
+      <p style="margin-top:12px">© 2026 NYX Messenger. In development.</p>
+    </div>
+    <div class="footlinks"><a href="/en/legal/">Legal</a><a href="/en/faq/">FAQ</a><a href="/en/contact/">Contact</a><a href="mailto:nyx.messenger@gmail.com">Email</a></div>
+  </div>
+</footer>
+<script src="/assets/subpage.js"></script>
+<script>
+(() => {
+  const btn = document.getElementById("copyEmail");
+  if (!btn || !navigator.clipboard) return;
+  const orig = btn.textContent;
+  btn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("nyx.messenger@gmail.com");
+      btn.textContent = "Copied!";
+      setTimeout(() => { btn.textContent = orig; }, 1800);
+    } catch (_e) {}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080811">
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <meta name="description" content="NYX Messenger — приватный мессенджер со сквозным шифрованием сообщений." id="metaDescription">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NYX Messenger">
+  <meta property="og:title" content="NYX Messenger — Приватность в основе" id="ogTitle">
+  <meta property="og:description" content="Приватное общение со сквозным шифрованием." id="ogDescription">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>NYX Messenger — Приватность в основе</title>
+  <style>
+    :root{--bg:#08090e;--panel:#10121b;--panel2:#141724;--line:rgba(255,255,255,.09);--text:#f5f6fb;--muted:#9a9daf;--accent:#a5a2ff;--accent2:#7774ed;--green:#a5e6c2;--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 75% 5%,rgba(107,103,231,.14),transparent 35%),radial-gradient(ellipse at 5% 45%,rgba(76,89,160,.09),transparent 35%)}
+    #particles-bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:1;display:block}
+    body>*:not(#particles-bg){position:relative;z-index:1}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:.13em;font-size:15px}.brand img{width:35px;height:35px;object-fit:contain;border-radius:8px}
+    .navlinks{display:flex;gap:30px;color:#b8bac9;font-size:13px}.navlinks a:hover,.footer a:hover{color:white}.navright{display:flex;align-items:center;gap:12px}
+    .lang{background:transparent;border:1px solid var(--line);color:#e8e9f1;border-radius:999px;padding:8px 12px;font:600 12px "DM Sans";cursor:pointer}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:10px;background:#eeedff;color:#10111a;font-weight:700;font-size:13px;transition:.25s;border:1px solid transparent}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 35px #7774ed30}.btn.ghost{background:transparent;color:#f3f3fa;border-color:var(--line)}.actions .btn.ghost{background:rgba(35,34,57,.94);border-color:rgba(165,162,255,.42);box-shadow:inset 0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(10px)}.actions .btn.ghost:hover{background:rgba(48,46,77,.98);border-color:rgba(165,162,255,.7)}.btn.small{padding:9px 13px;font-size:12px}
+    .hero{padding:104px 0 88px;display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:58px;min-height:650px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#c2c1ff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:#aaa7ff;box-shadow:0 0 14px #aaa7ff}
+    h1,h2,h3,p{margin-top:0}h1{font:800 clamp(46px,6.2vw,76px)/1.04 Manrope,sans-serif;letter-spacing:-.065em;margin:22px 0}
+    .gradient{background:linear-gradient(100deg,#fff 5%,#b8b5ff 65%,#8c9bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:17px;line-height:1.75;color:#a9acbd;max-width:520px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 23px}
+    .micro{font-size:11px;color:#777b8d}.hero-visual{position:relative;min-height:430px;display:grid;place-items:center}
+    .orb{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(133,129,255,.19),rgba(83,83,170,.07) 45%,transparent 70%);filter:blur(8px);animation:orbBreath 8s ease-in-out infinite}
+    @keyframes orbBreath{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
+    .app-window{position:relative;width:min(100%,470px);background:linear-gradient(145deg,#171a29,#0e1018);border:1px solid #ffffff20;border-radius:20px;box-shadow:0 35px 100px #0009,0 0 70px #8581ff12;overflow:hidden;transform:perspective(1200px) rotateY(-5deg) rotateX(2deg);animation:float 7s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:perspective(1200px) rotateY(-5deg) rotateX(2deg) translateY(0)}50%{transform:perspective(1200px) rotateY(-2.5deg) rotateX(1deg) translateY(-10px)}}
+    .windowbar{height:43px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 15px;gap:6px}.windowbar i{width:7px;height:7px;border-radius:50%;background:#55596c}.windowbar span{margin-left:auto;color:#777b8c;font-size:10px;letter-spacing:.08em}
+    .chat{display:grid;grid-template-columns:135px minmax(0,1fr);min-height:0;align-items:stretch}.sidebar{border-right:1px solid var(--line);padding:14px 10px}.side-title{font-size:9px;color:#74788c;letter-spacing:.13em;margin:3px 5px 13px}.person{display:flex;gap:8px;align-items:center;padding:9px 6px;border-radius:8px;font-size:10px;color:#c7c9d5}.person.active{background:#7774ed24;color:#fff}.avatar{width:23px;height:23px;border-radius:8px;background:linear-gradient(135deg,#7774ed,#34365b)}.avatar.alt{background:linear-gradient(135deg,#7c9bba,#34445b)}.avatar.alt2{background:linear-gradient(135deg,#bd8bca,#59446d)}
+    .conversation{padding:15px 16px 12px;display:flex;flex-direction:column;height:260px;min-height:260px;max-height:260px;min-width:0;box-sizing:border-box;overflow:hidden}.demo-messages{flex:1 1 0%;height:0;min-height:0;display:flex;flex-direction:column;align-items:flex-start;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#625bd066 transparent;padding:0 3px 8px 0}.demo-messages::-webkit-scrollbar{width:4px}.demo-messages::-webkit-scrollbar-thumb{background:#625bd066;border-radius:8px}.demo-compose{flex:0 0 auto;margin-top:auto}.demo-local-note{flex:0 0 auto;position:relative;margin-bottom:0}.convhead{display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:11px;flex:0 0 auto}.online{font-size:9px;color:#93d7b4;margin-left:auto}.bubble{flex-shrink:0;font-size:10px;line-height:1.5;padding:9px 11px;border-radius:11px;max-width:82%;margin-top:12px;color:#dfe0ec;background:#202334}.bubble.mine{align-self:flex-end;background:#48458e;color:#fff}.cipher{margin-top:auto;border:1px solid #7d7af03b;background:#7d7af00c;padding:9px;border-radius:8px;color:#b8b5ff;font-size:9px;display:flex;gap:7px;align-items:center}
+    .section{padding:92px 0;border-top:1px solid var(--line)}.section-head{max-width:660px;margin-bottom:42px}.kicker{color:#aaa7ff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.section h2{font:750 clamp(32px,4vw,49px)/1.13 Manrope,sans-serif;letter-spacing:-.045em;margin:13px 0 15px}.section-head p{color:var(--muted);font-size:15px;max-width:600px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(145deg,#121521,#0e1018);border:1px solid var(--line);border-radius:15px;padding:24px;min-height:210px;transition:.25s}.card:hover{border-color:#8b88ef66;transform:translateY(-4px);background:#141725}.icon{width:39px;height:39px;border:1px solid #8c89ef40;background:#8c89ef12;color:#b8b5ff;border-radius:11px;display:grid;place-items:center;font-size:17px;margin-bottom:25px}.card h3{font:700 17px Manrope;margin-bottom:9px}.card p{color:#969aab;font-size:13px;line-height:1.7;margin:0}
+    .security{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}.security-visual{border:1px solid var(--line);border-radius:18px;padding:26px;background:linear-gradient(145deg,#141727,#0d0f17);min-height:320px;display:flex;flex-direction:column;justify-content:center;gap:13px}
+    .node{border:1px solid #8e8bf044;border-radius:11px;padding:15px;background:#8e8bf00b;display:flex;justify-content:space-between;align-items:center;font-size:12px}.node small{color:#a7a5ef}.arrow{text-align:center;color:#8582df;font-size:18px;line-height:1}
+    .checks{list-style:none;padding:0;margin:24px 0}.checks li{display:flex;gap:11px;color:#b9bbca;font-size:13px;margin:13px 0}.checks li:before{content:"✓";color:#a5e6c2;font-weight:700}
+    .roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.phase{border-top:1px solid #8b88ef;padding:22px 0}.phase .status{font-size:10px;color:#aaa7ff;letter-spacing:.12em;text-transform:uppercase}.phase h3{font:700 19px Manrope;margin:10px 0}.phase p{color:#969aab;font-size:13px}
+    .faq{max-width:820px}.faq details{border-bottom:1px solid var(--line);padding:19px 0}.faq summary{cursor:pointer;list-style:none;font:650 15px Manrope}.faq summary:after{content:"+";float:right;color:#aaa7ff;font-size:20px}.faq details[open] summary:after{content:"−"}.faq details p{color:#9da0b1;font-size:13px;max-width:700px;margin:13px 0 0}
+    .cta{border:1px solid #8b88ef44;border-radius:20px;padding:48px;background:radial-gradient(ellipse at 85% 20%,#7774ed22,transparent 50%),#11131e;display:flex;justify-content:space-between;align-items:center;gap:25px}.cta h2{font:750 clamp(27px,3.4vw,40px)/1.15 Manrope;letter-spacing:-.04em;margin:0 0 10px}.cta p{color:#9da0b1;margin:0;font-size:13px}
+    footer{padding:34px 0 45px;border-top:1px solid var(--line);margin-top:85px}.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.foot p{color:#777b8c;font-size:11px;margin:0}.footlinks{display:flex;gap:20px;color:#a1a4b3;font-size:11px}
+    .reveal{opacity:1;transform:none}.has-reveal .reveal{opacity:0;transform:translate3d(0,26px,0) scale(.985);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1);will-change:opacity,transform}.has-reveal .reveal.visible{opacity:1;transform:translate3d(0,0,0) scale(1);will-change:auto}
+    @media(max-width:850px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding:75px 0 65px;gap:20px}.hero-visual{min-height:360px}.app-window{transform:none}.security{grid-template-columns:1fr;gap:30px}.grid{grid-template-columns:repeat(2,1fr)}.cta{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){.wrap{width:min(100% - 32px,var(--max))}.nav{height:70px}.brand img{width:30px;height:30px}.navright .btn{display:none}.hero{padding:66px 0 45px;min-height:0}.lead{font-size:15px}.hero-visual{min-height:290px}.app-window{width:100%;border-radius:14px}.chat{grid-template-columns:105px minmax(0,1fr);min-height:0}.sidebar{padding:10px 6px}.conversation{padding:12px 10px}.section{padding:68px 0}.grid{grid-template-columns:1fr}.card{min-height:0}.roadmap{grid-template-columns:1fr;gap:0}.phase{padding:18px 0}.cta{padding:28px 22px}.foot{align-items:flex-start;flex-direction:column}.footlinks{flex-wrap:wrap}.section h2{font-size:34px}}
+
+    /* Responsive and cross-platform refinements */
+    .menu-toggle{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font:600 17px "DM Sans",sans-serif;cursor:pointer}
+    button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #aaa7ff;outline-offset:4px}
+    img{max-width:100%;height:auto} .hero,.section,.cta{min-width:0} .hero>* ,.security>*{min-width:0}
+    @media (max-width:1024px){:root{--max:960px}.wrap{width:min(var(--max),calc(100% - 40px))}.hero{gap:32px;padding-top:82px}.navlinks{gap:20px}.app-window{transform:none}}
+    @media (max-width:850px){.app-window{animation:none;transform:none}.nav{position:relative}.menu-toggle{display:inline-flex;align-items:center;justify-content:center;order:2}.navright{order:3}.navlinks{display:none;position:absolute;z-index:20;left:0;right:0;top:calc(100% + 1px);padding:14px;background:#11131df5;border:1px solid var(--line);border-radius:0 0 14px 14px;box-shadow:0 18px 45px #0009;flex-direction:column;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 10px;border-radius:8px}.navlinks a:hover{background:#ffffff0b}.hero{grid-template-columns:1fr;min-height:0}.hero>div:first-child{max-width:720px}.hero-visual{width:min(100%,600px);margin:0 auto}.security{grid-template-columns:1fr}.security-visual{min-height:280px}}
+    @media (max-width:560px){.app-window{animation:none;transform:none}.wrap{width:calc(100% - 32px)}.nav{height:66px;gap:8px}.brand{gap:8px;font-size:14px}.navright{gap:8px}.lang{padding:8px 10px}.navright .btn{display:none}.hero{padding:54px 0 42px;gap:14px}.hero h1{font-size:clamp(39px,11vw,54px);overflow-wrap:anywhere}.lead{font-size:15px;line-height:1.65}.actions{gap:9px;margin:23px 0 18px}.btn{padding:12px 15px}.hero-visual{min-height:0;padding:10px 0 18px}.orb{width:min(80vw,330px);height:min(80vw,330px)}.app-window{width:100%;max-width:470px}.chat{grid-template-columns:minmax(82px,29%) minmax(0,1fr);min-height:0}.person{gap:5px;padding:8px 4px;font-size:9px}.side-title{font-size:8px}.bubble{font-size:9px;padding:8px}.section{padding:58px 0}.section-head{margin-bottom:28px}.section h2{font-size:clamp(30px,8vw,36px)}.grid{grid-template-columns:1fr;gap:11px}.card{padding:21px}.icon{margin-bottom:17px}.security-visual{padding:17px;min-height:250px}.node{gap:10px;font-size:11px;padding:12px}.cta{padding:25px 19px}.footlinks{gap:14px}}
+    @media (max-width:380px){.wrap{width:calc(100% - 26px)}.brand img{width:27px;height:27px}.lang{font-size:11px;padding:7px 9px}.menu-toggle{padding:7px 9px}.hero h1{font-size:38px}.actions{flex-direction:column;align-items:stretch}.actions .btn{width:100%}.chat{grid-template-columns:76px minmax(0,1fr)}.sidebar{padding:8px 4px}.person{font-size:8px}.conversation{padding:10px 8px}.convhead{font-size:10px}.cipher{font-size:8px}}
+    @media (max-height:500px) and (orientation:landscape){.hero{padding-top:36px;padding-bottom:30px}.hero-visual{min-height:260px}.section{padding:48px 0}}
+    @media (hover:none) and (pointer:coarse){.card:hover,.btn:hover{transform:none;box-shadow:none}.card:active{border-color:#8b88ef88}}
+    @supports (padding:max(0px)){body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}}
+
+  
+/* V8.0 — refined NYX identity */
+:root{--bg:#070811;--panel:#111421;--line:rgba(174,171,255,.13);--accent:#b4b0ff}
+body:before{background:radial-gradient(ellipse at 72% 0%,rgba(112,105,255,.19),transparent 38%),radial-gradient(ellipse at 4% 70%,rgba(49,111,170,.08),transparent 35%)}
+.nav{backdrop-filter:blur(14px)}
+.brand{letter-spacing:.17em}
+.btn{border-radius:12px;box-shadow:0 8px 28px rgba(117,112,239,.08)}
+.btn.ghost{background:rgba(255,255,255,.025)}
+.card{border-radius:19px;background:linear-gradient(145deg,rgba(23,26,43,.96),rgba(13,15,24,.96));box-shadow:0 14px 45px rgba(0,0,0,.12)}
+.card:hover{box-shadow:0 20px 55px rgba(75,70,180,.13)}
+.section{border-top-color:rgba(174,171,255,.1)}
+.cta{box-shadow:inset 0 1px rgba(255,255,255,.04),0 24px 70px rgba(0,0,0,.15)}
+:root{--cyan:#00f5ff}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:#d6d5ff;font-size:12px;font-weight:600}
+.badge i{color:var(--cyan)}
+.island-demo{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.player{border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#151827,#0c0e16);padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.island{margin:0 auto 22px;background:#000;border:1px solid rgba(180,176,255,.18);border-radius:999px;padding:8px 10px 8px 16px;display:flex;align-items:center;gap:14px;width:fit-content;max-width:100%}
+.eq{display:flex;align-items:flex-end;gap:3px;height:18px}
+.eq b{width:3px;background:var(--cyan);border-radius:2px;height:5px;animation:eq 1s ease-in-out infinite;animation-play-state:paused}
+.playing .eq b{animation-play-state:running}
+.eq b:nth-child(2){animation-delay:.2s}.eq b:nth-child(3){animation-delay:.4s}.eq b:nth-child(4){animation-delay:.6s}
+@keyframes eq{0%,100%{height:4px}50%{height:18px}}
+.island button,.ctrl button{border:0;cursor:pointer;color:#fff;background:rgba(255,255,255,.08);width:30px;height:30px;border-radius:50%;transition:.2s}
+.island button:hover,.ctrl button:hover{background:#7774ed}
+.track{display:flex;gap:16px;align-items:center}
+.cover{width:76px;height:76px;border-radius:16px;background:linear-gradient(135deg,#7c5cfc,#ec4899);display:grid;place-items:center;font-size:26px;color:#fff;flex:none}
+.track h4{margin:0;font:700 17px Manrope;color:#fff}.track span{color:#9a9daf;font-size:13px}
+.bar{height:5px;border-radius:5px;background:rgba(255,255,255,.1);margin:22px 0 8px;overflow:hidden;cursor:pointer}
+.bar div{height:100%;width:0;background:linear-gradient(90deg,#7c5cfc,#00f5ff)}
+.times{display:flex;justify-content:space-between;font-size:11px;color:#777b8d}
+.ctrl{display:flex;justify-content:center;gap:14px;margin-top:14px}.ctrl button{width:44px;height:44px;font-size:15px}
+.ctrl button.main{background:#eeedff;color:#10111a}
+/* Local audio controls stay visually secondary so the original Dynamic Island/player design remains intact. */
+.local-music{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.music-actions{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.music-upload{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid rgba(180,176,255,.16);border-radius:999px;background:rgba(255,255,255,.045);color:#c9cada;font:500 11px "DM Sans",sans-serif;cursor:pointer;transition:.2s}
+.music-upload:hover{background:rgba(124,92,252,.14);border-color:rgba(180,176,255,.35);color:#fff}
+.music-upload input{display:none}.music-hint{flex-basis:100%;text-align:center;font-size:10px;color:#777b8d;line-height:1.4}
+.music-volume{display:flex;align-items:center;gap:7px;color:#85899c;font-size:11px}.music-volume input{width:76px;accent-color:#aaa7ff}
+.playlist{display:grid;gap:4px;width:100%;max-height:78px;overflow:auto}.playlist button{width:100%;text-align:left;padding:6px 9px;border:1px solid transparent;border-radius:8px;background:rgba(255,255,255,.025);color:#aeb2c5;cursor:pointer;font-size:11px}.playlist button.active{border-color:rgba(180,176,255,.25);background:rgba(139,125,241,.08);color:#fff}
+
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dl .card{min-height:0}.dl .meta{margin:18px 0;color:#777b8d;font-size:12px}
+.dl .btn{width:100%}
+@media(max-width:850px){.island-demo,.dl{grid-template-columns:1fr}}
+
+/* V9 — editorial redesign: warm graphite + single lime accent */
+:root{--bg:#0d0d0c;--panel:#161614;--panel2:#1b1b18;--line:rgba(244,240,230,.12);--text:#f4f0e6;--muted:#a09c90;--accent:#d7ff3f;--cyan:#d7ff3f;--max:1200px}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text)}
+body:before{background:none}
+.nav{backdrop-filter:none;border-bottom-color:var(--line)}
+.brand{font-family:Manrope,sans-serif;font-weight:800;letter-spacing:.13em}
+.navlinks{color:var(--muted)}
+.lang{border-radius:999px;color:var(--text)}
+h1,.section h2,.cta h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.025em}
+h1{font-size:clamp(52px,7.2vw,104px);line-height:.96;margin:26px 0}
+.section h2{font-size:clamp(38px,5vw,64px);line-height:1.04}
+.cta h2{font-size:clamp(30px,3.4vw,44px)}
+.card h3,.phase h3,.track h4,.faq summary{font-family:Inter,sans-serif;letter-spacing:-.01em}
+.gradient{background:none;-webkit-text-fill-color:currentColor;color:var(--accent);font-style:italic}
+.kicker,.eyebrow,.phase .status{color:var(--accent)}
+.lead,.section-head p{color:var(--muted)}
+.btn{background:var(--accent);color:#11120a;border-radius:999px;box-shadow:none;padding:14px 24px}
+.btn:hover{box-shadow:none;transform:translateY(-2px);background:#e6ff7a}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn.ghost:hover{background:rgba(244,240,230,.06)}
+.badge{background:transparent;color:var(--text)}
+.badge i{color:var(--accent);font-size:7px}
+.orb{background:radial-gradient(circle,rgba(215,255,63,.1),transparent 68%)}
+.app-window{background:#151513;border-color:var(--line);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.55);transform:none;animation:none}
+.person.active{background:rgba(215,255,63,.1)}
+.avatar{background:#4a4a42}.avatar.alt{background:#7d7a6b}.avatar.alt2{background:#2f2f2a}
+.bubble{background:#23231f}
+.bubble.mine{background:var(--accent);color:#11120a}
+.cipher{border-color:rgba(215,255,63,.3);background:rgba(215,255,63,.05);color:var(--accent)}
+.online{color:var(--accent)}
+.card{background:var(--panel);border-radius:20px;box-shadow:none;border-color:var(--line)}
+.card:hover{background:var(--panel2);border-color:rgba(215,255,63,.55);box-shadow:none}
+.icon{border-color:var(--line);background:transparent;color:var(--accent);border-radius:50%}
+.card p,.phase p,.faq details p{color:var(--muted)}
+.section{border-top-color:var(--line);padding:110px 0}
+.security-visual,.player{background:var(--panel);border-color:var(--line);box-shadow:none}
+.node{border-color:var(--line);background:transparent}
+.node small{color:var(--accent)}.arrow{color:var(--muted)}
+.checks li:before{color:var(--accent)}
+.checks li{color:var(--text)}
+.island{border-color:var(--line)}
+.cover{background:var(--accent);color:#11120a}
+.bar div{background:var(--accent)}
+.island button:hover,.ctrl button:hover{background:var(--accent);color:#11120a}
+.ctrl button.main{background:var(--accent);color:#11120a}
+.phase{border-top-color:var(--accent)}
+.cta{background:var(--accent);border:0;box-shadow:none;border-radius:28px;padding:60px}
+.cta h2,.cta p{color:#11120a}
+.cta .btn{background:#11120a;color:var(--accent)}
+.cta .btn:hover{background:#26271a}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:34px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font:400 clamp(34px,4vw,54px)/1 "Instrument Serif",serif;color:var(--accent)}
+.stat span{display:block;margin-top:8px;color:var(--muted);font-size:13px}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.cta{padding:34px 22px}}
+
+
+
+/* NYX update: purple identity, viewport-sized sections and compact layouts */
+:root{
+  --bg:#080811;--panel:#111321;--panel2:#191b2d;
+  --line:rgba(181,174,255,.15);--text:#f4f2ff;--muted:#a3a2b8;
+  --accent:#aaa3ff;--accent2:#7d72ee;--cyan:#aaa3ff;--max:1200px;
+}
+body{background:var(--bg);color:var(--text)}
+body:before{background:radial-gradient(ellipse at 78% 4%,rgba(121,105,255,.18),transparent 38%),radial-gradient(ellipse at 7% 72%,rgba(82,71,168,.12),transparent 36%)}
+.btn{background:var(--accent);color:#10101a}
+.btn:hover{background:#c3beff}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn.ghost:hover{background:rgba(170,163,255,.09)}
+.kicker,.eyebrow,.phase .status{color:#b9b3ff}
+.gradient{color:#b9b3ff}
+.badge{border-color:var(--line);background:rgba(170,163,255,.06);color:#e6e3ff}
+.badge i{color:#b9b3ff}
+.orb{background:radial-gradient(circle,rgba(132,117,255,.2),rgba(83,70,170,.06) 50%,transparent 72%)}
+.app-window{background:linear-gradient(145deg,#17192a,#0d0e18);border-color:rgba(181,174,255,.2);box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 60px rgba(113,99,255,.1)}
+.person.active{background:rgba(170,163,255,.15)}
+.bubble.mine{background:#6258b8;color:#fff}
+.cipher{border-color:rgba(170,163,255,.3);background:rgba(170,163,255,.07);color:#c0bbff}
+.card,.security-visual,.player{background:linear-gradient(145deg,#131626,#0e101b);border-color:var(--line)}
+.card:hover{background:#191b2d;border-color:rgba(170,163,255,.48)}
+.icon{border-color:rgba(170,163,255,.2);background:rgba(170,163,255,.08);color:#bcb6ff}
+.node{border-color:var(--line);background:rgba(170,163,255,.035)}
+.node small,.arrow{color:#b9b3ff}
+.checks li:before{color:#b9b3ff}
+.phase{border-top-color:#8e85f4}
+.cta{background:radial-gradient(ellipse at 80% 20%,rgba(151,137,255,.28),transparent 53%),linear-gradient(135deg,#211d42,#17152d);border:1px solid rgba(170,163,255,.22);box-shadow:0 25px 75px rgba(0,0,0,.3)}
+.cta h2,.cta p{color:var(--text)}
+.cta .btn{background:#b9b3ff;color:#10101a}
+.cta .btn:hover{background:#d0ccff}
+.cover{background:linear-gradient(135deg,#8877ef,#51449b);color:white}
+.bar div{background:linear-gradient(90deg,#8172ee,#b9b3ff)}
+.island button:hover,.ctrl button:hover{background:#8b7df1;color:#fff}
+.ctrl button.main{background:#b9b3ff;color:#10101a}
+
+/* Every main content section occupies one viewport in height. */
+.hero{
+  height:calc(100svh - 82px);min-height:0;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:clamp(28px,4vw,54px);
+  padding:clamp(26px,5vh,66px) 0;
+}
+.hero-visual{justify-items:end;transform:translateX(clamp(0px,1.8vw,22px));min-height:0}
+.app-window{width:min(100%,470px);margin-left:auto}
+.section{
+  height:100svh;min-height:0;box-sizing:border-box;
+  display:flex;align-items:center;overflow-x:hidden;overflow-y:auto;
+  padding:clamp(30px,5.5vh,72px) 0;
+}
+.section>.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+.section-head{margin-bottom:clamp(18px,3vh,30px)}
+.section-head p{font-size:clamp(12px,1.1vw,14px);line-height:1.6}
+#features .grid{gap:12px}
+#features .card{min-height:clamp(128px,17vh,172px);padding:clamp(15px,1.7vw,22px)}
+#features .icon{width:33px;height:33px;margin-bottom:12px;font-size:15px}
+#features .card h3{font-size:clamp(14px,1.3vw,16px);margin-bottom:6px}
+#features .card p{font-size:clamp(11px,.95vw,12px);line-height:1.5}
+#music .island-demo{gap:clamp(25px,4vw,54px)}
+#music .section-head{margin-bottom:0}
+#music .player{padding:clamp(16px,2vw,22px)}
+#download .download-wrap{display:flex;flex-direction:column;justify-content:center}
+#download .section-head{max-width:760px;margin-bottom:clamp(14px,2.2vh,24px)}
+#download .platform-picker{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.platform-option{min-width:0;min-height:88px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:12px 15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);color:var(--text);font:inherit;text-align:left;cursor:pointer;transition:.2s}
+.platform-option:hover{border-color:rgba(170,163,255,.55);background:rgba(170,163,255,.07)}
+.platform-option.active{border-color:#aaa3ff;background:linear-gradient(145deg,rgba(133,119,245,.19),rgba(133,119,245,.06));box-shadow:inset 0 0 0 1px rgba(170,163,255,.16)}
+.platform-glyph{font-size:21px;line-height:1.1;color:#c0bbff}
+.platform-name{font-weight:700;font-size:14px}
+.platform-option small{font-size:10px;color:var(--muted)}
+.platform-panel{display:grid;grid-template-columns:minmax(180px,.7fr) minmax(0,1.6fr);gap:22px;align-items:stretch;padding:clamp(15px,2vw,22px);border:1px solid var(--line);border-radius:19px;background:linear-gradient(130deg,rgba(27,28,48,.94),rgba(15,17,28,.96))}
+.platform-copy{display:flex;flex-direction:column;justify-content:center;padding:4px 8px}
+.platform-overline{color:#b9b3ff;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.platform-copy h3{font:400 clamp(25px,3vw,37px)/1.05 "Instrument Serif",Georgia,serif;margin:10px 0}
+.platform-copy p{color:var(--muted);font-size:12px;line-height:1.6;margin:0;max-width:330px}
+.platform-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.platform-download-card{min-width:0;min-height:0;padding:16px;border-radius:14px}
+.platform-download-card .icon{width:30px;height:30px;margin:0 0 10px;font-size:16px}
+.platform-download-card h3{font-size:14px;margin:0 0 6px}
+.platform-download-card p{font-size:11px;line-height:1.45;min-height:31px;margin:0}
+.platform-download-card .meta{font-size:10px;color:var(--muted);margin:9px 0}
+.platform-download-card .btn{padding:10px 12px;font-size:11px;width:100%}
+.platform-coming{grid-column:1/-1;min-height:145px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:18px 22px;border:1px dashed rgba(170,163,255,.3);border-radius:14px;background:rgba(170,163,255,.035)}
+.platform-coming strong{font:400 27px "Instrument Serif",Georgia,serif;margin-bottom:6px}
+.platform-coming p{font-size:12px;color:var(--muted);margin:0 0 14px}
+.platform-coming .btn{opacity:.58;cursor:not-allowed}
+#security .security{gap:clamp(25px,4vw,55px)}
+#security .security-visual{min-height:0;padding:clamp(16px,2vw,26px)}
+#security .checks{margin:16px 0}
+#security .checks li{font-size:12px;margin:9px 0}
+#roadmap .roadmap{gap:clamp(15px,2.5vw,30px)}
+#roadmap .phase{padding:18px 0}
+#roadmap .phase h3{font-size:clamp(17px,1.6vw,20px)}
+#roadmap .phase p{font-size:12px;line-height:1.55}
+#sandbox .sandbox-wrap{display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2vh,20px)}
+.sandbox-heading{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end}
+.sandbox-heading h2{margin:9px 0 0;font-size:clamp(33px,4.1vw,54px)}
+.sandbox-intro{max-width:540px;justify-self:end}
+.sandbox-platform{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(170,163,255,.28);background:rgba(170,163,255,.07);border-radius:999px;padding:7px 12px;color:#d7d3ff;font-size:11px;font-weight:700;margin-bottom:9px}
+.sandbox-platform .platform-glyph{font-size:14px}
+.sandbox-intro p{font-size:12px;line-height:1.55;color:var(--muted);margin:0 0 6px}
+.sandbox-intro .sandbox-note{font-size:10px;color:#85849b}
+.sandbox-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.sandbox-window{min-width:0;overflow:hidden;border:1px solid rgba(181,174,255,.17);border-radius:13px;background:linear-gradient(145deg,#151729,#0d0f19);box-shadow:0 12px 35px rgba(0,0,0,.18)}
+.sandbox-titlebar{height:30px;display:flex;align-items:center;gap:9px;padding:0 11px;border-bottom:1px solid rgba(181,174,255,.12);background:rgba(255,255,255,.018)}
+.sandbox-titlebar>b{font-size:10px;font-weight:650;color:#e7e5f5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.window-dots{display:flex;gap:4px;flex:none}.window-dots i{width:6px;height:6px;border-radius:50%;background:#77728f}.window-dots i:first-child{background:#b18aa5}.window-dots i:nth-child(2){background:#c5b17f}.window-dots i:nth-child(3){background:#7ea88f}
+.window-index{margin-left:auto;color:#77758e;font-size:9px;font-variant-numeric:tabular-nums}
+.sandbox-body{height:clamp(94px,12vh,118px);padding:10px 13px;overflow:hidden}
+.terminal-caption{font-size:8px;letter-spacing:.13em;color:#8e8aa9;margin-bottom:7px}
+.terminal-row,.setting-line{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:5px 0;font-size:9px}
+.terminal-row span,.setting-line span{color:#89879e}.terminal-row b,.setting-line b{font-size:9px;color:#e5e2fa;font-weight:600}.terminal-row .state-ready{color:#b5aaff}
+.mock-field{height:30px;border:1px solid rgba(181,174,255,.13);border-radius:6px;padding:4px 8px;margin-bottom:6px;display:flex;flex-direction:column;justify-content:center;gap:1px}
+.mock-field span{font-size:7px;color:#85839a}.mock-field b{font-size:9px;color:#e7e4f5;font-weight:500}
+.mock-action{height:23px;border-radius:6px;background:#7668d7;color:white;text-align:center;font-size:8px;font-weight:700;display:grid;place-items:center;margin-top:2px}
+.contacts-body{padding-top:5px}.mock-contact{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(181,174,255,.08)}
+.mock-avatar{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:9px;font-weight:700;color:white;flex:none}.mock-avatar.purple{background:#6454a8}.mock-avatar.blue{background:#456a92}.mock-avatar.pink{background:#8b5c91}
+.mock-contact>span:nth-child(2){display:flex;flex-direction:column;min-width:0}.mock-contact b{font-size:9px}.mock-contact small{font-size:7px;color:#8d8ba1}.mock-presence{width:5px;height:5px;border-radius:50%;background:#9c8cff;margin-left:auto}
+.dialogue-body{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding-top:8px}.mock-message{max-width:78%;border-radius:7px;padding:5px 8px;background:#24253a;color:#e4e1f5;font-size:8px}.mock-message.sent{align-self:flex-end;background:#5d54a4;color:#fff}.mock-message.short{max-width:45%}.mock-compose{margin-top:auto;height:21px;width:100%;border:1px solid rgba(181,174,255,.15);border-radius:6px;padding:3px 7px;display:flex;align-items:center;justify-content:space-between;color:#89879e;font-size:8px}.mock-compose b{color:#bcb5ff}
+.file-drop{height:55px;border:1px dashed rgba(170,163,255,.35);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(170,163,255,.035)}
+.file-symbol{font-size:15px;color:#b7afff}.file-drop b{font-size:8px}.file-drop small{font-size:7px;color:#85839a}
+.file-item{display:flex;align-items:center;gap:8px;margin-top:7px}.file-ext{background:rgba(170,163,255,.16);color:#c3bcff;padding:5px 6px;border-radius:5px;font-size:7px;font-weight:700}.file-item>span:nth-child(2){display:flex;flex-direction:column}.file-item b{font-size:8px}.file-item small{font-size:7px;color:#8d8ba1}.file-item>i{margin-left:auto;color:#b7afff;font-style:normal;font-size:11px}
+.settings-body{padding-top:14px}.setting-line{margin:9px 0}.sandbox-footer{display:flex;align-items:center;justify-content:space-between;gap:14px}.sandbox-footer>span{font-size:10px;color:#89879e}.sandbox-footer .btn{padding:8px 15px;font-size:10px;opacity:.62;cursor:not-allowed}
+.cta-page{height:100svh;min-height:0;display:flex;align-items:center;padding-top:0;padding-bottom:0}
+.cta-page .cta{width:100%;min-height:220px}
+
+@media(max-width:1024px){
+  .hero{gap:26px}.hero-visual{transform:none}
+  #download .platform-option{padding:10px 11px}
+  .sandbox-grid{gap:8px}
+  .sandbox-heading{gap:22px}
+}
+@media(max-width:850px){
+  .hero{height:auto;min-height:calc(100svh - 82px);grid-template-columns:1fr;padding:48px 0 35px;gap:12px}
+  .hero-visual{width:min(100%,600px);margin:0 auto;justify-items:center;transform:none}
+  .app-window{margin:0 auto}
+  .section{height:100svh;padding:35px 0}
+  #music .island-demo{grid-template-columns:1fr;gap:18px}
+  #music .player{max-width:560px;width:100%;margin:0 auto}
+  #security .security{grid-template-columns:1fr;gap:15px}
+  #security .security-visual{display:none}
+  #download .platform-panel{grid-template-columns:1fr;gap:12px}
+  .platform-copy{padding:0}
+  .platform-copy h3{margin:5px 0}
+  .platform-actions{gap:9px}
+  .sandbox-heading{grid-template-columns:1fr 1fr;gap:18px}
+  .sandbox-body{height:100px}
+}
+@media(max-width:700px){
+  .section{height:100svh;align-items:flex-start;overflow-y:auto}
+  .section>.wrap{width:calc(100% - 32px)}
+  #features .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #features .card{min-height:0}
+  #download .platform-picker{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+  .platform-option{min-height:72px;padding:7px 6px;align-items:center;text-align:center;border-radius:11px}
+  .platform-glyph{font-size:17px}.platform-name{font-size:10px}.platform-option small{font-size:7px}
+  .platform-panel{padding:12px}
+  .platform-download-card{padding:11px}
+  .platform-download-card p{min-height:48px}
+  #roadmap .roadmap{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .sandbox-heading{grid-template-columns:1fr;gap:8px}
+  .sandbox-intro{justify-self:start}
+  .sandbox-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sandbox-body{height:96px;padding:8px}
+  .sandbox-titlebar{padding:0 8px}
+  .sandbox-titlebar>b{font-size:9px}
+}
+@media(max-width:560px){
+  .hero{height:auto;min-height:calc(100svh - 66px);padding:40px 0 25px}
+  .hero h1{font-size:clamp(42px,10vw,58px)}
+  .hero-visual{min-height:0;padding:5px 0 12px}
+  .section{padding:27px 0}
+  #features .section-head{margin-bottom:17px}
+  #features .card{padding:12px;border-radius:13px}
+  #features .card h3{font-size:12px}
+  #features .card p{font-size:10px}
+  #music .section-head{margin-bottom:4px}
+  #music .checks{margin:12px 0}
+  #download .section-head{margin-bottom:12px}
+  .platform-panel{gap:9px}
+  .platform-copy h3{font-size:25px}
+  .platform-copy p{font-size:10px}
+  .platform-download-card h3{font-size:11px}
+  .platform-download-card p{font-size:9px;min-height:45px}
+  .platform-download-card .meta{font-size:8px}
+  .platform-download-card .btn{font-size:9px;padding:8px 6px}
+  #security .security-visual{display:none}
+  #roadmap .roadmap{grid-template-columns:1fr;gap:0}
+  #roadmap .phase{padding:10px 0}
+  #roadmap .phase p{margin-bottom:0}
+  .sandbox-heading h2{font-size:37px}
+  .sandbox-intro p{font-size:10px}
+  .sandbox-grid{gap:7px}
+  .sandbox-window{border-radius:10px}
+  .sandbox-titlebar{height:26px;gap:5px}
+  .window-dots{gap:3px}.window-dots i{width:5px;height:5px}
+  .sandbox-titlebar>b{font-size:8px}
+  .window-index{font-size:7px}
+  .sandbox-body{height:90px;padding:7px}
+  .sandbox-footer{margin-top:1px}
+  .cta-page{height:100svh;padding:0}
+  .cta-page .cta{padding:25px 20px;min-height:170px}
+}
+@media(max-height:760px) and (min-width:851px){
+  .hero{padding-top:22px;padding-bottom:22px}
+  .hero h1{font-size:clamp(45px,5.3vw,76px);margin:14px 0}
+  .hero-visual{min-height:0}.app-window{max-width:420px}
+  .section{padding-top:25px;padding-bottom:25px}
+  .section h2{font-size:clamp(31px,3.7vw,48px)}
+  #features .card{min-height:125px;padding:13px}
+  #features .icon{margin-bottom:8px}
+  #download .platform-option{min-height:70px}
+  .platform-panel{padding:13px}
+  .platform-download-card{padding:12px}
+  .sandbox-body{height:88px}
+  .sandbox-grid{gap:8px}
+  .sandbox-heading h2{font-size:42px}
+}
+
+
+/* Larger hero chat preview, optically centered in the viewport on desktop, with input pinned to bottom. */
+@media (min-width:851px){
+  .hero-visual{transform:translate(clamp(0px,1.8vw,22px),-40px)}
+  .app-window{width:min(100%,520px);max-width:none;transform:perspective(1200px) rotateY(-5deg) rotateX(2deg);animation:float 7s ease-in-out infinite;will-change:transform}
+  .chat{height:340px;min-height:340px}
+  .conversation{height:100%;min-height:340px;max-height:340px}
+}
+@media (min-width:851px) and (max-width:1024px){
+  .app-window{transform:none;animation:floatFlat 7s ease-in-out infinite}
+  @keyframes floatFlat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+}
+.hero .badge .dot{animation:dotPulse 2.8s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.72}}
+@keyframes heroFadeUp{from{opacity:0;translate:0 22px}to{opacity:1;translate:0 0}}
+.hero>div:first-child{animation:heroFadeUp .75s cubic-bezier(.2,.7,.2,1) both}
+.hero-visual{animation:heroFadeUp .85s .1s cubic-bezier(.2,.7,.2,1) both}
+
+  
+/* Final polish */
+.platform-copy h3{font:400 clamp(25px,3vw,37px)/1.05 "Instrument Serif",Georgia,serif;letter-spacing:0;margin:10px 0}
+#roadmap .roadmap-platforms{grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+#roadmap .phase{min-width:0}
+.cta-page{height:auto;min-height:0;padding-top:28px;padding-bottom:28px;margin-top:0}
+.cta-page .cta{min-height:0;padding:clamp(28px,4vw,46px)}
+footer{margin-top:24px}
+@media(max-width:850px){#roadmap .roadmap-platforms{grid-template-columns:repeat(3,minmax(0,1fr))}.cta-page{padding:24px 0}}
+@media(max-width:560px){#roadmap .roadmap-platforms{grid-template-columns:1fr 1fr}.cta-page{padding:18px 0}.cta-page .cta{padding:25px 20px}}
+
+/* Audio player: visual reference from the supplied sample */
+#music .player{padding:clamp(14px,2vw,22px);}
+.music-upload-row{display:flex;justify-content:center;margin:0 0 12px}
+.audio-island{display:flex;align-items:center;gap:13px;width:100%;padding:12px 13px;background:rgba(5,6,12,.96);border:1px solid rgba(255,255,255,.12);border-radius:19px;box-shadow:0 12px 38px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.035);min-width:0}
+.audio-cover-wrap{position:relative;flex:0 0 46px}
+.audio-cover{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#27223f,#11131d);border:1px solid rgba(255,255,255,.12);color:#b7a8ff;font-size:19px}
+.audio-cover img{width:100%;height:100%;object-fit:cover}
+.audio-type{position:absolute;right:-5px;bottom:-4px;padding:2px 5px;border-radius:4px;background:#6655ce;color:#fff;font-size:8px;font-weight:700}
+.audio-center{flex:1;min-width:0}
+.audio-names{display:flex;flex-direction:column;gap:3px;min-width:0;margin-bottom:7px}
+.audio-names strong{font-size:12px;font-weight:650;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.audio-names span{font-size:10px;color:#9295a8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.audio-timeline{display:flex;align-items:center;gap:7px;color:#9295a8;font:10px ui-monospace,monospace}
+.audio-progress{position:relative;flex:1;height:12px;display:flex;align-items:center;cursor:pointer;min-width:25px}
+.audio-progress:before{content:"";position:absolute;left:0;right:0;height:4px;border-radius:9px;background:rgba(255,255,255,.16)}
+.audio-progress>div{position:relative;z-index:1;width:0;height:4px;border-radius:9px;background:linear-gradient(90deg,#7c5cfc,#aaa1ff)}
+.audio-progress i{position:absolute;z-index:2;left:0;top:50%;width:9px;height:9px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;border:1px solid #9182ff;box-shadow:0 0 7px rgba(180,160,255,.7)}
+.audio-controls{display:flex;align-items:center;gap:3px;padding-left:8px;border-left:1px solid rgba(255,255,255,.1);flex:none}
+.audio-controls button{display:grid;place-items:center;width:29px;height:29px;border:0;border-radius:9px;background:transparent;color:#c6c7d2;cursor:pointer;font-size:12px}
+.audio-controls button:hover:not(:disabled){background:rgba(255,255,255,.1);color:#fff}
+.audio-controls button:disabled{opacity:1;cursor:default}
+.audio-controls .audio-main{width:34px;height:34px;background:#f2f0ff;color:#151321;border-radius:11px;font-size:13px}
+ .audio-controls .audio-main:hover:not(:disabled){background:#d9d2ff;color:#151321}
+/* Keep transport controls clearly visible across desktop and mobile layouts */
+#music .audio-island{overflow:visible}
+#music .audio-controls{display:flex!important;visibility:visible!important;opacity:1!important;position:relative;z-index:3;flex:0 0 auto;align-items:center;justify-content:center;min-width:104px;gap:4px;padding:0 0 0 9px;border-left:1px solid rgba(255,255,255,.18)}
+#music .audio-controls button{display:grid!important;visibility:visible!important;opacity:1!important;place-items:center;flex:0 0 auto;width:30px;height:32px;min-width:30px;padding:0!important;border:1px solid rgba(190,178,255,.28)!important;border-radius:9px;background:rgba(130,112,210,.18)!important;color:#eeeaff!important;font-size:14px!important;line-height:1;box-shadow:0 2px 9px rgba(0,0,0,.2)}
+#music .audio-controls button i{display:block!important;visibility:visible!important;opacity:1!important;color:inherit!important;font-size:14px!important}
+.audio-controls button svg,.audio-cover svg,.audio-volume-island svg,.music-upload svg{display:block;width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.audio-controls .audio-main svg{width:18px;height:18px}
+.audio-cover svg{width:23px;height:23px;color:#c9bdff}
+#music .audio-controls .audio-main{width:36px;height:36px;min-width:36px;background:#f2f0ff!important;color:#151321!important;border:1px solid rgba(255,255,255,.7)!important;font-size:15px!important}
+#music .audio-controls .audio-main i{color:#151321!important}
+@media(max-width:520px){#music .audio-controls{min-width:94px;gap:3px;padding-left:6px}#music .audio-controls button{width:27px;min-width:27px;height:30px}#music .audio-controls .audio-main{width:33px;min-width:33px;height:33px}}
+.audio-volume-island{display:flex;align-items:center;gap:10px;width:max-content;max-width:100%;margin:9px auto 0;padding:8px 13px;border-radius:12px;background:rgba(5,6,12,.88);border:1px solid rgba(255,255,255,.1);color:#9295a8;font-size:11px}
+.audio-volume-island>i{font-size:13px;color:#c7c2e8}
+.audio-volume-island input{width:130px;height:12px;appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer;accent-color:#a99bff}
+.audio-volume-island input::-webkit-slider-runnable-track{height:2px;border-radius:9px;background:rgba(255,255,255,.28)}
+.audio-volume-island input::-moz-range-track{height:2px;border-radius:9px;background:rgba(255,255,255,.28)}
+.audio-volume-island input::-webkit-slider-thumb{-webkit-appearance:none;width:7px;height:7px;margin-top:-2.5px;border-radius:50%;background:#c9bdff;border:0;box-shadow:0 0 5px rgba(170,150,255,.45)}
+.audio-volume-island input::-moz-range-thumb{width:7px;height:7px;border:0;border-radius:50%;background:#c9bdff;box-shadow:0 0 5px rgba(170,150,255,.45)}
+.audio-volume-island span{width:30px;text-align:right;font:10px ui-monospace,monospace;color:#c5c4d1}
+.audio-island-mini{display:none}
+#music .music-hint{margin-top:10px}
+#music .playlist{margin-top:10px;max-height:100px}
+@media(max-width:520px){.audio-island{gap:9px;padding:10px}.audio-cover-wrap{flex-basis:40px}.audio-cover{width:40px;height:40px}.audio-controls{gap:0;padding-left:5px}.audio-controls button{width:25px;height:28px}.audio-controls .audio-main{width:31px;height:31px}.audio-names strong{font-size:11px}.audio-names span{font-size:9px}.audio-timeline{gap:5px;font-size:9px}.audio-volume-island input{width:105px}}
+
+    .demo-compose{display:flex;align-items:center;gap:6px;margin-top:8px;padding:5px 6px 5px 10px;min-height:32px;border:1px solid rgba(181,174,255,.2);border-radius:9px;background:rgba(8,9,17,.72);transition:border-color .22s ease,box-shadow .22s ease,background .22s ease}
+    .demo-compose:focus-within{border-color:rgba(166,151,255,.7);box-shadow:0 0 0 3px rgba(125,122,240,.10);background:rgba(10,11,21,.94)}
+    .demo-compose input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#f2f0ff;font:inherit;font-size:10px;padding:4px 0}
+    .demo-compose input::placeholder{color:#85839a}
+    .demo-compose button{width:24px;height:24px;flex:0 0 24px;display:grid;place-items:center;border:0;border-radius:7px;background:#625bd0;color:#fff;cursor:pointer;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+    .demo-compose button:hover{background:#8179f0;box-shadow:0 3px 12px #625bd055}
+    .demo-compose button:active{transform:scale(.92)}
+    .demo-compose button svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .demo-local-note{font-size:8px;line-height:1.3;color:#77758d;padding:4px 2px 0;opacity:.85}
+    .bubble.demo-new{animation:demoMessageIn .28s cubic-bezier(.2,.8,.2,1) both;overflow-wrap:anywhere;white-space:pre-wrap}
+    @keyframes demoMessageIn{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .app-window{transition:box-shadow .35s ease,border-color .35s ease}
+    .app-window:hover{border-color:rgba(177,166,255,.28);box-shadow:0 38px 105px #000a,0 0 76px #8581ff19}
+    .btn,.card,.platform-option{transition:transform .24s ease,border-color .24s ease,background .24s ease,box-shadow .24s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:0 18px 45px #0005}
+    </style>
+<style>
+    @media(min-width:701px){.hero-visual .app-window{translate:56px 0}}
+    @media(max-width:700px){.hero-visual .app-window{translate:0 0}}
+    </style>
+
+<style id="mobile-optimization">
+/* Mobile layout overrides */
+@media (max-width: 700px) {
+  html, body { width:100%; overflow-x:hidden; }
+  .wrap, .section>.wrap { width:calc(100% - 36px); max-width:100%; }
+  .nav { height:64px; padding-inline:0; }
+  .nav .wrap { gap:10px; }
+  .brand { gap:8px; min-width:0; }
+  .brand span { font-size:18px; }
+  .navright { gap:8px; }
+  .navright .btn { display:none; }
+  .menu-toggle { display:inline-flex; align-items:center; justify-content:center; }
+  .navlinks { display:none; }
+  .hero {
+    min-height:0; height:auto; grid-template-columns:minmax(0,1fr);
+    padding:42px 0 28px; gap:20px; overflow:visible;
+  }
+  .hero-copy { min-width:0; }
+  .hero h1 { font-size:clamp(39px,10vw,54px); line-height:1.02; overflow-wrap:anywhere; }
+  .hero p, .lead { font-size:15px; line-height:1.6; }
+  .hero-actions { flex-wrap:wrap; gap:10px; }
+  .hero-visual { width:100%; min-width:0; min-height:0; padding:0; margin:0; transform:none; }
+  .hero-visual .app-window { width:100%; max-width:100%; min-width:0; translate:0 0; }
+  .app-window { overflow:hidden; border-radius:14px; }
+  .chat { grid-template-columns:88px minmax(0,1fr); min-height:250px; }
+  .sidebar { min-width:0; padding:9px 5px; }
+  .conversation { height:250px; min-height:250px; max-height:250px; min-width:0; padding:10px 8px; }
+  .message, .bubble { max-width:100%; overflow-wrap:anywhere; }
+  .section {
+    height:auto; min-height:0; max-height:none; overflow:visible;
+    padding:42px 0; align-items:stretch;
+  }
+  .section-head { margin-bottom:20px; }
+  .section h2 { font-size:clamp(29px,8vw,38px); line-height:1.08; }
+  .section p { line-height:1.55; }
+  #features .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  #features .card { padding:14px 12px; }
+  #features .card h3 { font-size:14px; }
+  #features .card p { font-size:12px; }
+  #music .island-demo, #security .security { grid-template-columns:minmax(0,1fr); }
+  #music .player { width:100%; max-width:100%; }
+  #download .platform-picker { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+  .platform-option { min-width:0; min-height:76px; padding:9px 5px; }
+  .platform-name { font-size:11px; }
+  .platform-panel { grid-template-columns:minmax(0,1fr); gap:14px; }
+  .platform-copy h3 { font-size:clamp(25px,7vw,34px); }
+  .platform-download-card { min-width:0; }
+  #roadmap .roadmap, #roadmap .roadmap-platforms { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .sandbox-heading { grid-template-columns:minmax(0,1fr); }
+  .sandbox-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .cta { padding:24px 18px; }
+  .foot { gap:14px; }
+  .footlinks { gap:10px 14px; }
+  .cta-page { height:auto; min-height:0; padding:24px 0; }
+}
+@media (max-width: 390px) {
+  .wrap, .section>.wrap { width:calc(100% - 28px); }
+  .hero h1 { font-size:39px; }
+  #features .grid { grid-template-columns:1fr; }
+  .chat { grid-template-columns:76px minmax(0,1fr); }
+  #download .platform-picker { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #roadmap .roadmap, #roadmap .roadmap-platforms { grid-template-columns:1fr; }
+  .sandbox-grid { grid-template-columns:1fr; }
+}
+</style>
+
+<style id="mobile-menu-fullscreen-fix">
+@media (max-width: 850px) {
+  header.nav { position: relative; z-index: 10001; }
+  header.nav .menu-toggle { position: relative; z-index: 10003; flex-shrink: 0; }
+  header.nav .navlinks,
+  header.nav .navlinks.open {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    width: 100%; height: 100vh; height: 100dvh;
+    box-sizing: border-box;
+    padding: max(92px, calc(env(safe-area-inset-top) + 78px)) 26px max(28px, env(safe-area-inset-bottom));
+    border: 0; border-radius: 0; margin: 0;
+    background: radial-gradient(ellipse at 80% 5%, rgba(112,105,255,.2), transparent 42%), rgba(7,8,17,.98);
+    backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+    box-shadow: none; overflow-y: auto; overscroll-behavior: contain;
+    flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 8px;
+    z-index: 10002;
+  }
+  header.nav .navlinks { display: none; }
+  header.nav .navlinks.open { display: flex; }
+  header.nav .navlinks a { display: flex; align-items: center; min-height: 54px; padding: 14px 16px; border: 1px solid rgba(174,171,255,.15); border-radius: 13px; background: rgba(255,255,255,.035); font-size: 17px; }
+  header.nav .navlinks a:active { background: rgba(140,135,255,.16); }
+  body.mobile-menu-open { overflow: hidden; touch-action: none; }
+}
+</style>
+</head>
+<body>
+<canvas id="particles-bg" aria-hidden="true"></canvas>
+<header class="wrap nav">
+  <a class="brand" href="/en/" aria-label="NYX Messenger home"><img src="/assets/nyx-logo.png" alt="NYX symbol"><span>NYX</span></a>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation">☰</button>
+  <nav class="navlinks" id="siteNav"><a href="#features" data-i="navFeatures">Features</a><a href="#music">Music</a><a href="#security" data-i="navSecurity">Security</a><a href="#download">Download</a><a href="#roadmap" data-i="navRoadmap">Roadmap</a><a href="/en/faq/" data-i="faqNav">FAQ</a></nav>
+  <div class="navright"><button class="lang" id="lang" aria-label="Switch language to Russian">RU</button><a class="btn small" href="/en/contact/" data-i="contact">Contact</a></div>
+</header>
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <div class="badge"><span class="dot" aria-hidden="true"></span> Version 1.0.0 • Available for Windows</div>
+      <h1 data-html="heroTitle">Your conversations.<br><span class="gradient">Your privacy.</span></h1>
+      <p class="lead" data-i="heroLead">NYX is a messenger in development, built around end-to-end encryption and thoughtful communication. Your private conversations should stay private.</p>
+      <div class="actions"><a class="btn" href="#download"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4V11.5H3V5.5Zm8.5-1.2L21 3V11.5H11.5V4.3ZM3 12.5H10.5V19.6L3 18.5V12.5Zm8.5 0H21V21L11.5 19.7V12.5Z"/></svg> Download</a><a class="btn ghost" href="#features">About ↓</a></div>
+      <div class="micro" data-i="availability">Currently in development · Windows first · Android and Linux planned</div>
+    </div>
+    <div class="hero-visual"><div class="orb"></div>
+      <div class="app-window" aria-label="Illustrative NYX chat interface">
+        <div class="windowbar"><i></i><i></i><i></i><span>NYX MESSENGER</span></div>
+        <div class="chat">
+          <aside class="sidebar"><div class="side-title" data-i="mockChats">CHATS</div><div class="person active"><div class="avatar"></div><span>Alex</span></div><div class="person"><div class="avatar alt"></div><span>Jordan</span></div><div class="person"><div class="avatar alt2"></div><span>Sam</span></div></aside>
+          <div class="conversation"><div class="convhead"><div class="avatar"></div><b>Alex</b><span class="online" data-i="mockOnline">● online</span></div><div class="demo-messages" id="demoMessages"><div class="bubble" data-i="mockMsg1">Hey! Did you get my message?</div><div class="bubble mine" data-i="mockMsg2">Yes. Private and secure.</div></div><form class="demo-compose" id="demoChatForm" autocomplete="off"><input id="demoChatInput" type="text" maxlength="500" aria-label="Type a message" placeholder="Write a message…"><button type="submit" aria-label="Send message" title="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12 20 4l-5 16-3-6-8-2Z"/><path d="m12 14 8-10"/></svg></button></form><div class="demo-local-note" id="demoLocalNote">Demo: messages stay in this window and are never sent to a server.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="features"><div class="wrap">
+    <div class="section-head reveal"><div class="kicker" data-i="featuresKicker">Made for conversations</div><h2 data-html="featuresTitle">Everything you need.<br><span class="gradient">Nothing you don't.</span></h2><p data-i="featuresLead">A focused set of tools for everyday communication, with privacy built into the way messages are protected.</p></div>
+    <div class="grid">
+      <article class="card reveal"><div class="icon">⌁</div><h3 data-i="f1t">Private messaging</h3><p data-i="f1p">Real-time conversations over WebSocket, with message history and end-to-end encryption.</p></article>
+      <article class="card reveal"><div class="icon">◎</div><h3 data-i="f2t">Accounts that are yours</h3><p data-i="f2p">Sign up with email verification, choose a unique username, and make your profile your own.</p></article>
+      <article class="card reveal"><div class="icon">↗</div><h3 data-i="f3t">Friends, by choice</h3><p data-i="f3p">Find people by username and connect through friend requests. Your chat list is built around your friends.</p></article>
+      <article class="card reveal"><div class="icon">⌕</div><h3 data-i="f4t">Share files</h3><p data-i="f4p">Send files up to 20 MB. Media is encrypted with a separate key carried inside the encrypted message.</p></article>
+      <article class="card reveal"><div class="icon">✎</div><h3 data-i="f5t">Stay in control</h3><p data-i="f5p">Edit or delete your own messages. Keep your conversations the way you want them.</p></article>
+      <article class="card reveal"><div class="icon">⌘</div><h3 data-i="f6t">Built with Rust</h3><p data-i="f6p">NYX is being developed with Rust and a dedicated cryptographic implementation written in Dart.</p></article>
+    </div>
+  </div></section>
+  <section class="section" id="music"><div class="wrap island-demo">
+    <div class="section-head reveal" style="margin:0"><div class="kicker">Music inside the messenger</div><h2>Dynamic Island<br><span class="gradient">in action.</span></h2><p>Each music chat is its own playlist. Drop an MP3, FLAC, WAV, or M4A into the window and NYX reads cover art, tags, and duration automatically. Music plays in the background while you chat.</p>
+      <ul class="checks"><li>Drag-and-drop track loading</li><li>Compact overlay and mini player above windows</li><li>Neon equalizer and scrubber</li></ul></div>
+    <div class="player reveal" id="player">
+      <div class="music-upload-row"><label class="music-upload"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v6m-3-3 3-3 3 3"/></svg> Load music<input id="musicFiles" type="file" accept="audio/*,.mp3,.wav,.flac,.m4a,.ogg,.aac" multiple></label></div>
+      <div class="audio-island" id="audioIsland">
+        <div class="audio-cover-wrap"><div class="audio-cover" id="audioCover"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/><path d="M12 3v2"/></svg></div><span class="audio-type" id="audioType">MP3</span></div>
+        <div class="audio-center">
+          <div class="audio-names"><strong id="trackTitle">Choose your music</strong><span id="trackMeta">Local playback · NYX</span></div>
+          <div class="audio-timeline"><span id="tcur">0:00</span><div class="audio-progress" id="bar"><div id="fill"></div><i id="scrub"></i></div><span id="tdur">0:00</span></div>
+        </div>
+        <div class="audio-controls"><button id="prevTrack" type="button" aria-label="Previous track" title="Previous track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M19 6l-9 6 9 6z"/></svg></button><button class="audio-main" id="pp" type="button" aria-label="Play / Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg></button><button id="nextTrack" type="button" aria-label="Next track" title="Next track"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M5 6l9 6-9 6z"/></svg></button></div>
+      </div>
+      <div class="audio-volume-island"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4z"/><path d="M16 9a5 5 0 0 1 0 6m2-9a9 9 0 0 1 0 12"/></svg><input id="musicVolume" type="range" min="0" max="1" step="0.01" value="0.1" aria-label="Volume"><span id="volumeValue">10%</span></div>
+      <div class="music-hint">Files stay on your device and are never uploaded to a server.</div>
+      <div class="playlist" id="playlist"><div class="music-hint">Add one or more audio files to get started.</div></div>
+      <div class="audio-island-mini" id="islandTrack">No track selected</div>
+      <audio id="localAudio" preload="metadata"></audio>
+    </div>
+  </div></section>
+  <section class="section" id="download">
+    <div class="wrap download-wrap">
+      <div class="section-head reveal">
+        <div class="kicker" data-i="downloadKicker">Выбор платформы</div>
+        <h2 data-html="downloadTitle">Выбери свою <span class="gradient">платформу.</span></h2>
+        <p data-i="downloadLead">Выбери устройство. Первая тестовая сборка готовится для Windows, остальные платформы появятся позже.</p>
+      </div>
+      <div class="platform-picker reveal" role="tablist" aria-label="Выбор платформы">
+        <button class="platform-option active" type="button" role="tab" aria-selected="true" data-platform="windows"><span class="platform-glyph">⊞</span><span class="platform-name">Windows</span><small data-i="platformFirst">Первая сборка</small></button>
+        <button class="platform-option" type="button" role="tab" aria-selected="false" data-platform="linux"><span class="platform-glyph">◈</span><span class="platform-name">Linux</span><small data-i="platformPlanned">В планах</small></button>
+        <button class="platform-option" type="button" role="tab" aria-selected="false" data-platform="macos"><span class="platform-glyph">●</span><span class="platform-name">macOS</span><small data-i="platformPlanned">В планах</small></button>
+        <button class="platform-option" type="button" role="tab" aria-selected="false" data-platform="android"><span class="platform-glyph">◉</span><span class="platform-name">Android</span><small data-i="platformPlanned">В планах</small></button>
+        <button class="platform-option" type="button" role="tab" aria-selected="false" data-platform="ios"><span class="platform-glyph">▣</span><span class="platform-name">iOS</span><small data-i="platformPlanned">В планах</small></button>
+      </div>
+      <div class="platform-panel reveal" aria-live="polite">
+        <div class="platform-copy"><div class="platform-overline" data-i="platformSelected">Выбрана платформа</div><h3 id="platformTitle">NYX для Windows</h3><p id="platformDescription">Windows 10/11 (64-bit). Для первой тестовой версии.</p></div>
+        <div class="platform-actions" id="platformActions">
+          <article class="card platform-download-card"><div class="icon">↓</div><h3>NYX Installer</h3><p>Быстрая установка, ярлыки на рабочем столе и в меню Пуск.</p><div class="meta">NYX_Setup.exe</div><a class="btn" href="/downloads/NYX_Setup.exe" download>Скачать установщик</a></article>
+          <article class="card platform-download-card"><div class="icon">▤</div><h3>NYX Portable</h3><p>Распакуй и запусти. Не требует установки.</p><div class="meta">NYX_Portable.zip</div><a class="btn ghost" href="/downloads/NYX_Portable.zip" download>Скачать Portable</a></article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="security"><div class="wrap security">
+    <div class="section-head reveal"><div class="kicker" data-i="securityKicker">Privacy is not an add-on</div><h2 data-html="securityTitle">Designed to keep<br><span class="gradient">messages yours.</span></h2><p data-i="securityLead">NYX uses the Signal Protocol building blocks X3DH and Double Ratchet to establish and update message encryption keys between participants.</p>
+      <ul class="checks"><li data-i="s1">End-to-end encryption for conversations</li><li data-i="s2">Server stores ciphertext and public keys</li><li data-i="s3">Files encrypted with a separate media key</li><li data-i="s4">Cryptographic implementation written from scratch in Dart</li></ul>
+      <p class="micro" data-i="securityNote">NYX is under active development. The security design has not yet been presented as independently audited or certified.</p>
+    </div>
+    <div class="security-visual reveal"><div class="node"><span data-i="sender">Sender's device</span><small>X3DH + Double Ratchet</small></div><div class="arrow">↓ <span data-i="encrypted">encrypted payload</span> ↓</div><div class="node"><span data-i="server">NYX server</span><small data-i="serverOnly">Ciphertext + public keys</small></div><div class="arrow">↓ <span data-i="encrypted">encrypted payload</span> ↓</div><div class="node"><span data-i="receiver">Recipient's device</span><small data-i="decrypt">Decrypts locally</small></div></div>
+  </div></section>
+  <section class="section" id="roadmap"><div class="wrap">
+    <div class="section-head reveal"><div class="kicker" data-i="roadmapKicker">The journey ahead</div><h2 data-i="roadmapTitle">Built step by step.</h2><p data-i="roadmapLead">NYX is actively being developed. Here's the current direction — timelines will be shared when they're ready.</p></div>
+    <div class="roadmap roadmap-platforms">
+      <div class="phase reveal"><div class="status">First platform</div><h3>Windows</h3><p>The first desktop build of NYX with accounts, chats, and encrypted file sharing.</p></div>
+      <div class="phase reveal"><div class="status">Planned</div><h3>Linux</h3><p>Desktop version for Linux.</p></div>
+      <div class="phase reveal"><div class="status">Planned</div><h3>macOS</h3><p>Desktop version for Mac computers.</p></div>
+      <div class="phase reveal"><div class="status">Planned</div><h3>Android</h3><p>Private messaging on Android devices.</p></div>
+      <div class="phase reveal"><div class="status">Planned</div><h3>iOS</h3><p>Mobile version for iPhone.</p></div>
+    </div>
+  </div></section>
+<section class="wrap cta-page"><div class="cta reveal"><div><h2 data-i="ctaTitle">Privacy should feel simple.</h2></div><a class="btn" href="/en/contact/" data-html="ctaButton">Contact us ↗</a></div></section>
+</main>
+<footer><div class="wrap foot"><div><a class="brand" href="/en/"><img src="/assets/nyx-logo.png" alt=""><span>NYX</span></a><p style="margin-top:12px" data-i="copyright">© 2026 NYX Messenger. In development.</p></div><div class="footlinks"><a href="/en/legal/">Legal</a><a href="/en/faq/">FAQ</a><a href="/en/contact/">Contact</a><a href="mailto:nyx.messenger@gmail.com">Email</a></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+<script>
+// NYX particle background: 60fps sprite-cached starfield.
+(() => {
+  const canvas = document.getElementById("particles-bg");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d", { alpha: true });
+  if (!ctx) return;
+
+  let width = 0, height = 0, particles = [], rafId = 0, lastTime = 0;
+  const colors = ["224,220,255", "173,160,255", "145,139,190"];
+  const sprites = colors.map((rgb) => {
+    const c = document.createElement("canvas");
+    c.width = 24;
+    c.height = 24;
+    const gctx = c.getContext("2d");
+    const grad = gctx.createRadialGradient(12, 12, 0.5, 12, 12, 11);
+    grad.addColorStop(0, `rgba(${rgb},1)`);
+    grad.addColorStop(0.32, `rgba(${rgb},0.85)`);
+    grad.addColorStop(0.65, `rgba(${rgb},0.18)`);
+    grad.addColorStop(1, `rgba(${rgb},0)`);
+    gctx.fillStyle = grad;
+    gctx.fillRect(0, 0, 24, 24);
+    return c;
+  });
+
+  function resize() {
+    const oldWidth = width, oldHeight = height, oldParticles = particles;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const mobile = width < 700;
+    const areaCount = Math.floor((width * height) / (mobile ? 6500 : 5200));
+    const count = Math.max(mobile ? 65 : 110, Math.min(mobile ? 115 : 220, areaCount));
+    particles = oldParticles.slice(0, count).map(p => ({
+      ...p,
+      x: oldWidth ? (p.x / oldWidth) * width : Math.random() * width,
+      y: oldHeight ? (p.y / oldHeight) * height : Math.random() * height
+    }));
+    while (particles.length < count) particles.push({
+      x: Math.random() * width, y: Math.random() * height,
+      radius: 0.9 + Math.random() * 1.6,
+      vx: (Math.random() - 0.5) * 0.55, vy: (Math.random() - 0.5) * 0.55,
+      alpha: 0.42 + Math.random() * 0.5,
+      spriteIdx: Math.floor(Math.random() * sprites.length)
+    });
+    render(0);
+  }
+
+  function render(dtScale) {
+    ctx.clearRect(0, 0, width, height);
+    for (const p of particles) {
+      if (dtScale > 0) {
+        p.x += p.vx * dtScale;
+        p.y += p.vy * dtScale;
+        if (p.x < -8) p.x = width + 8;
+        if (p.x > width + 8) p.x = -8;
+        if (p.y < -8) p.y = height + 8;
+        if (p.y > height + 8) p.y = -8;
+      }
+      const size = p.radius * 4.4;
+      ctx.globalAlpha = p.alpha;
+      ctx.drawImage(sprites[p.spriteIdx], p.x - size * 0.5, p.y - size * 0.5, size, size);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function animate(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    const dt = Math.min(48, timestamp - lastTime);
+    lastTime = timestamp;
+    render(dt / 16.667);
+    rafId = window.requestAnimationFrame(animate);
+  }
+
+  function handleVisibility() {
+    if (document.hidden) {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      rafId = 0;
+    } else if (!rafId) {
+      lastTime = 0;
+      rafId = window.requestAnimationFrame(animate);
+    }
+  }
+
+  let lastViewportWidth = window.innerWidth;
+  window.addEventListener("resize", () => {
+    if (Math.abs(window.innerWidth - lastViewportWidth) > 2) {
+      lastViewportWidth = window.innerWidth;
+      resize();
+    }
+  }, { passive: true });
+  document.addEventListener("visibilitychange", handleVisibility);
+  resize();
+  if ("requestAnimationFrame" in window) {
+    rafId = window.requestAnimationFrame(animate);
+  }
+})();
+
+const translations={
+en:{
+navFeatures:"Features",navSecurity:"Security",navRoadmap:"Roadmap",contact:"Contact",menuOpen:"Open navigation",menuClose:"Close navigation",faqNav:"FAQ",metaDescription:"NYX Messenger — private conversations, protected with end-to-end encryption.",ogDescription:"Private conversations, protected with end-to-end encryption.",eyebrow:"A new way to stay private",
+heroTitle:'Your conversations.<br><span class="gradient">Your privacy.</span>',heroLead:"NYX is a messenger in development, built around end-to-end encryption and thoughtful communication. Your private conversations should stay private.",
+primaryCta:"Get in touch <span>↗</span>",secondaryCta:"How it works <span>↓</span>",availability:"Currently in development · Windows first · Android and Linux planned",mockChats:"CHATS",mockOnline:"● online",mockMsg1:"Hey! Did you get my message?",mockMsg2:"Yes. Private and secure.",mockCipher:"End-to-end encrypted",
+featuresKicker:"Made for conversations",featuresTitle:'Everything you need.<br><span class="gradient">Nothing you don\'t.</span>',featuresLead:"A focused set of tools for everyday communication, with privacy built into the way messages are protected.",
+f1t:"Private messaging",f1p:"Real-time conversations over WebSocket, with message history and end-to-end encryption.",f2t:"Accounts that are yours",f2p:"Sign up with email verification, choose a unique username, and make your profile your own.",f3t:"Friends, by choice",f3p:"Find people by username and connect through friend requests. Your chat list is built around your friends.",f4t:"Share files",f4p:"Send files up to 20 MB. Media is encrypted with a separate key carried inside the encrypted message.",f5t:"Stay in control",f5p:"Edit or delete your own messages. Keep your conversations the way you want them.",f6t:"Built with Rust",f6p:"NYX is being developed with Rust and a dedicated cryptographic implementation written in Dart.",
+securityKicker:"Privacy is not an add-on",securityTitle:'Designed to keep<br><span class="gradient">messages yours.</span>',securityLead:"NYX uses the Signal Protocol building blocks X3DH and Double Ratchet to establish and update message encryption keys between participants.",s1:"End-to-end encryption for conversations",s2:"Server stores ciphertext and public keys",s3:"Files encrypted with a separate media key",s4:"Cryptographic implementation written from scratch in Dart",securityNote:"NYX is under active development. The security design has not yet been presented as independently audited or certified.",
+sender:"Sender's device",encrypted:"encrypted payload",server:"NYX server",serverOnly:"Ciphertext + public keys",receiver:"Recipient's device",decrypt:"Decrypts locally",
+roadmapKicker:"The journey ahead",roadmapTitle:"Built step by step.",roadmapLead:"NYX is actively being developed. Here's the current direction — timelines will be shared when they're ready.",r1status:"First platform",r1title:"Windows",r1text:"The first desktop version of NYX.",r2status:"Planned",r2title:"Linux",r2text:"A desktop version for Linux.",r3status:"Planned",r3title:"macOS",r3text:"A version for Mac computers.",
+faqTitle:"A few things worth knowing.",q1:"Is NYX available to download?",a1:"NYX is currently in development. Public downloads and release dates have not been announced.",q2:"What encryption does NYX use?",a2:"The current implementation uses Signal Protocol components: X3DH for key agreement and Double Ratchet for ongoing message key updates.",q3:"Can the NYX server read my messages?",a3:"The intended design is end-to-end encryption: the server stores ciphertext and public keys rather than message plaintext. Independent security review has not yet been announced.",q4:"Which platforms are planned?",a4:"Windows is the first platform. Android and Linux are planned.",navSandbox:"Local test",
+downloadKicker:"Choose a platform",downloadTitle:'Choose your <span class="gradient">platform.</span>',downloadLead:"Select your device. The first test build is being prepared for Windows; other platforms are planned.",platformFirst:"First build",platformPlanned:"Planned",platformSelected:"Selected platform",platformWindowsTitle:"NYX for Windows",platformWindowsDescription:"Windows 10/11 (64-bit). The first platform for the test release.",platformInstallerText:"Quick installation with shortcuts in the Start menu and on the desktop.",platformPortableText:"Unpack and run. No installation is required.",platformInstallerButton:"Download installer",platformPortableButton:"Download Portable",platformInstallerMeta:"NYX_Setup.exe",platformPortableMeta:"NYX_Portable.zip",platformComingTitle:"Not available yet",platformComingText:"A build for this platform has not been released. It is planned for a later stage.",platformComingButton:"Coming soon",
+sandboxKicker:"Section 06 · Local test version",sandboxTitle:'Local NYX test build<br><span class="gradient">Windows only.</span>',sandboxWindowsOnly:"Windows only",sandboxLead:"A separate test build will be available to run locally on a Windows PC. The preview below shows six windows of the planned test environment.",sandboxNote:"This is a visual concept. The local package and setup instructions will be added with the actual test build.",sandboxW1Title:"Local launch",sandboxW2Title:"Account sign-in",sandboxW3Title:"Chat list",sandboxW4Title:"Private conversation",sandboxW5Title:"File transfer",sandboxW6Title:"Local settings",sandboxReady:"Waiting to launch",sandboxEmail:"Email address",sandboxPassword:"Password",sandboxSignIn:"Sign in to NYX",sandboxLast1:"See you tonight",sandboxLast2:"Sent a file",sandboxLast3:"Sounds good!",sandboxMessage1:"Hey! Are you there?",sandboxMessage2:"Yes, I'm here.",sandboxMessage3:"Great ✦",sandboxType:"Write a message…",sandboxDrop:"Drop a file here",sandboxOr:"or choose from your device",sandboxEncrypted:"Encrypted",sandboxStorage:"Data storage",sandboxOnDevice:"On this device",sandboxNetwork:"Server address",sandboxPrivacy:"Mode",sandboxPrivate:"Private",sandboxBuildStatus:"Test build is in preparation",sandboxButton:"Coming soon",
+ctaTitle:"Privacy should feel simple.",ctaButton:"Contact us ↗",copyright:"© 2026 NYX Messenger. In development.",footerSecurity:"Security",footerRoadmap:"Roadmap"
+},
+ru:{
+navFeatures:"Возможности",navSecurity:"Безопасность",navRoadmap:"Планы",contact:"Связаться",menuOpen:"Открыть меню",menuClose:"Закрыть меню",faqNav:"Вопросы",metaDescription:"NYX Messenger — приватный мессенджер со сквозным шифрованием сообщений.",ogDescription:"Приватное общение со сквозным шифрованием.",eyebrow:"Новый подход к приватному общению",
+heroTitle:'Твои разговоры.<br><span class="gradient">Твоя приватность.</span>',heroLead:"NYX — разрабатываемый мессенджер, в основе которого лежат сквозное шифрование и продуманный подход к общению. Личные разговоры должны оставаться личными.",
+primaryCta:"Связаться <span>↗</span>",secondaryCta:"Как это работает <span>↓</span>",availability:"В разработке · Сначала Windows · Android и Linux в планах",mockChats:"ЧАТЫ",mockOnline:"● в сети",mockMsg1:"Привет! Ты получил моё сообщение?",mockMsg2:"Да. Приватно и безопасно.",mockCipher:"Сквозное шифрование",
+featuresKicker:"Для настоящего общения",featuresTitle:'Всё необходимое.<br><span class="gradient">Ничего лишнего.</span>',featuresLead:"Продуманный набор инструментов для повседневного общения, где приватность заложена в сам принцип защиты сообщений.",
+f1t:"Личные сообщения",f1p:"Общение в реальном времени через WebSocket, история переписки и сквозное шифрование.",f2t:"Твой аккаунт",f2p:"Регистрация с подтверждением почты, уникальный юзернейм и персональный профиль.",f3t:"Друзья по выбору",f3p:"Поиск людей по юзернейму и добавление через заявки. Список чатов формируется из друзей.",f4t:"Обмен файлами",f4p:"Отправка файлов до 20 МБ. Медиа шифруется отдельным ключом, который передаётся внутри зашифрованного сообщения.",f5t:"Контроль над сообщениями",f5p:"Редактируй и удаляй собственные сообщения, управляя своей перепиской.",f6t:"Разработка на Rust",f6p:"NYX разрабатывается на Rust, а собственная реализация криптографических механизмов написана на Dart.",
+securityKicker:"Приватность — не дополнение",securityTitle:'Сообщения остаются<br><span class="gradient">твоими.</span>',securityLead:"NYX использует компоненты Signal Protocol — X3DH и Double Ratchet — для согласования и обновления ключей шифрования между участниками.",s1:"Сквозное шифрование переписки",s2:"Сервер хранит шифротекст и публичные ключи",s3:"Файлы шифруются отдельным медиаключом",s4:"Криптографическая реализация написана с нуля на Dart",securityNote:"NYX находится в активной разработке. Независимый аудит или сертификация безопасности пока не заявлены.",
+sender:"Устройство отправителя",encrypted:"зашифрованные данные",server:"Сервер NYX",serverOnly:"Шифротекст + публичные ключи",receiver:"Устройство получателя",decrypt:"Расшифровка на устройстве",
+roadmapKicker:"Что впереди",roadmapTitle:"Развиваемся постепенно.",roadmapLead:"NYX активно разрабатывается. Вот текущее направление — сроки релизов объявим, когда они будут определены.",r1status:"Первая платформа",r1title:"Windows",r1text:"Первая настольная версия NYX с аккаунтами, чатами и обменом файлами.",r2status:"В планах",r2title:"Linux",r2text:"Настольная версия для Linux.",r3status:"В планах",r3title:"macOS",r3text:"Версия для компьютеров Mac.",
+faqTitle:"Что стоит знать.",q1:"Можно ли уже скачать NYX?",a1:"Сейчас NYX находится в разработке. Публичная загрузка и даты релиза пока не объявлены.",q2:"Какое шифрование использует NYX?",a2:"Текущая реализация использует компоненты Signal Protocol: X3DH для согласования ключей и Double Ratchet для их последующего обновления.",q3:"Может ли сервер NYX прочитать мои сообщения?",a3:"Задуманный принцип — сквозное шифрование: сервер хранит шифротекст и публичные ключи, а не открытый текст сообщений. Независимый аудит безопасности пока не объявлен.",q4:"Какие платформы планируются?",a4:"Первой платформой является Windows. Также планируются Android и Linux.",navSandbox:"Тестовая версия",
+downloadKicker:"Выбор платформы",downloadTitle:'Выбери свою <span class="gradient">платформу.</span>',downloadLead:"Выбери устройство. Первая тестовая сборка готовится для Windows, остальные платформы появятся позже.",platformFirst:"Первая сборка",platformPlanned:"В планах",platformSelected:"Выбрана платформа",platformWindowsTitle:"NYX для Windows",platformWindowsDescription:"Windows 10/11 (64-bit). Первая платформа для тестового релиза.",platformInstallerText:"Быстрая установка, ярлыки на рабочем столе и в меню Пуск.",platformPortableText:"Распакуй и запусти. Установка не требуется.",platformInstallerButton:"Запросить установщик",platformPortableButton:"Запросить Portable",platformInstallerMeta:"NYX_Setup.exe",platformPortableMeta:"NYX_Portable.zip",platformComingTitle:"Пока недоступно",platformComingText:"Сборка для этой платформы ещё не выпущена. Она запланирована на следующий этап.",platformComingButton:"Скоро",
+sandboxKicker:"Раздел 06 · Локальная тестовая версия",sandboxTitle:'Локальная тестовая сборка<br><span class="gradient">только для Windows.</span>',sandboxWindowsOnly:"Только для Windows",sandboxLead:"Отдельную тестовую сборку можно будет запускать локально на ПК с Windows. Ниже показаны шесть окон будущей тестовой среды.",sandboxNote:"Это визуальный макет. Файл сборки и инструкция по локальному запуску будут добавлены вместе с готовой тестовой версией.",sandboxW1Title:"Локальный запуск",sandboxW2Title:"Вход в аккаунт",sandboxW3Title:"Список чатов",sandboxW4Title:"Личный диалог",sandboxW5Title:"Передача файлов",sandboxW6Title:"Локальные настройки",sandboxReady:"Ожидание запуска",sandboxEmail:"Электронная почта",sandboxPassword:"Пароль",sandboxSignIn:"Войти в NYX",sandboxLast1:"Увидимся вечером",sandboxLast2:"Отправил файл",sandboxLast3:"Хорошо!",sandboxMessage1:"Привет! Ты здесь?",sandboxMessage2:"Да, я на связи.",sandboxMessage3:"Отлично ✦",sandboxType:"Написать сообщение…",sandboxDrop:"Перетащи файл сюда",sandboxOr:"или выбери на устройстве",sandboxEncrypted:"Зашифрован",sandboxStorage:"Хранение данных",sandboxOnDevice:"На устройстве",sandboxNetwork:"Адрес сервера",sandboxPrivacy:"Режим",sandboxPrivate:"Приватный",sandboxBuildStatus:"Тестовая сборка готовится",sandboxButton:"Скоро",
+ctaTitle:"Приватность может быть простой.",ctaButton:"Связаться с нами ↗",copyright:"© 2026 NYX Messenger. В разработке.",footerSecurity:"Безопасность",footerRoadmap:"Планы"
+}};
+let current="en";
+let selectedPlatform="windows";
+function renderPlatform(){
+  const t=translations[current]||translations.ru;
+  const title=document.getElementById("platformTitle");
+  const description=document.getElementById("platformDescription");
+  const actions=document.getElementById("platformActions");
+  if(!title||!description||!actions)return;
+  document.querySelectorAll(".platform-option").forEach(button=>{
+    const active=button.dataset.platform===selectedPlatform;
+    button.classList.toggle("active",active);
+    button.setAttribute("aria-selected",String(active));
+  });
+  if(selectedPlatform==="windows"){
+    title.textContent=t.platformWindowsTitle;
+    description.textContent=t.platformWindowsDescription;
+    actions.innerHTML=`
+      <article class="card platform-download-card"><div class="icon">↓</div><h3>NYX Installer</h3><p>${t.platformInstallerText}</p><div class="meta">${t.platformInstallerMeta}</div><a class="btn" href="/downloads/NYX_Setup.exe" download>${t.platformInstallerButton}</a></article>
+      <article class="card platform-download-card"><div class="icon">▤</div><h3>NYX Portable</h3><p>${t.platformPortableText}</p><div class="meta">${t.platformPortableMeta}</div><a class="btn ghost" href="/downloads/NYX_Portable.zip" download>${t.platformPortableButton}</a></article>`;
+  }else{
+    const platformName={linux:"Linux",macos:"macOS",android:"Android",ios:"iOS"}[selectedPlatform];
+    title.textContent=(current==="en"?"NYX for ":"NYX для ")+platformName;
+    description.textContent=t.platformComingText;
+    actions.innerHTML=`<div class="platform-coming"><strong>${t.platformComingTitle}</strong><p>${t.platformComingText}</p><button class="btn" type="button" disabled>${t.platformComingButton}</button></div>`;
+  }
+}
+function setLanguage(lang){
+  const safeLang=translations[lang]?lang:"en";
+  current=safeLang;
+  document.documentElement.lang=safeLang;
+  document.querySelectorAll("[data-i]").forEach(el=>{
+    const value=translations[safeLang][el.dataset.i];
+    if(value!==undefined) el.textContent=value;
+  });
+  document.querySelectorAll("[data-html]").forEach(el=>{
+    const value=translations[safeLang][el.dataset.html];
+    if(value!==undefined) el.innerHTML=value;
+  });
+  const langButton=document.getElementById("lang");
+  if(langButton){langButton.textContent=safeLang==="en"?"RU":"EN";langButton.setAttribute("aria-label",safeLang==="en"?"Switch language to Russian":"Переключить язык на английский");}
+  document.title=safeLang==="en"?"NYX Messenger — Private by design":"NYX Messenger — Приватность в основе";
+  const description=document.getElementById("metaDescription");
+  const ogTitle=document.getElementById("ogTitle");
+  const ogDescription=document.getElementById("ogDescription");
+  if(description) description.setAttribute("content",translations[safeLang].metaDescription);
+  if(ogTitle) ogTitle.setAttribute("content",document.title);
+  if(ogDescription) ogDescription.setAttribute("content",translations[safeLang].ogDescription);
+  if(menuToggle){const opened=menuToggle.getAttribute("aria-expanded")==="true";menuToggle.setAttribute("aria-label",opened?translations[safeLang].menuClose:translations[safeLang].menuOpen);}
+  renderPlatform();
+  try{localStorage.setItem("nyx-language",safeLang);}catch(_e){}
+}
+const langButton=document.getElementById("lang");
+if(langButton) langButton.addEventListener("click",()=>{const target=current==="en"?"ru":"en";location.href=location.pathname.replace(/^\/(ru|en)(?=\/|$)/,"/"+target);});
+const menuToggle=document.getElementById("menuToggle");
+const siteNav=document.getElementById("siteNav");
+if(menuToggle && siteNav){
+  menuToggle.addEventListener("click",()=>{const opened=siteNav.classList.toggle("open");document.body.classList.toggle("mobile-menu-open",opened);menuToggle.setAttribute("aria-expanded",String(opened));menuToggle.setAttribute("aria-label",opened?translations[current].menuClose:translations[current].menuOpen);menuToggle.textContent=opened?"✕":"☰";});
+  siteNav.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{siteNav.classList.remove("open");document.body.classList.remove("mobile-menu-open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label",translations[current].menuOpen);menuToggle.textContent="☰";}));
+  document.addEventListener("keydown",event=>{if(event.key==="Escape"){siteNav.classList.remove("open");document.body.classList.remove("mobile-menu-open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label",translations[current].menuOpen);menuToggle.textContent="☰";}});
+  document.addEventListener("click",event=>{if(siteNav.classList.contains("open") && !siteNav.contains(event.target) && !menuToggle.contains(event.target)){siteNav.classList.remove("open");document.body.classList.remove("mobile-menu-open");menuToggle.setAttribute("aria-expanded","false");menuToggle.setAttribute("aria-label",translations[current].menuOpen);menuToggle.textContent="☰";}});
+}
+setLanguage("en");
+document.querySelectorAll(".platform-option").forEach(button=>button.addEventListener("click",()=>{
+  selectedPlatform=button.dataset.platform||"windows";
+  renderPlatform();
+}));
+(()=>{
+ const pl=document.getElementById("player"); if(!pl)return;
+ const audio=document.getElementById("localAudio"), picker=document.getElementById("musicFiles");
+ const fill=document.getElementById("fill"), current=document.getElementById("tcur"), duration=document.getElementById("tdur"), scrub=document.getElementById("scrub");
+ const title=document.getElementById("trackTitle"), islandTitle=document.getElementById("islandTrack"), meta=document.getElementById("trackMeta"), type=document.getElementById("audioType");
+ const playButtons=[document.getElementById("pp")];
+ const prev=document.getElementById("prevTrack"), next=document.getElementById("nextTrack"), cover=document.getElementById("audioCover"), list=document.getElementById("playlist");
+ let tracks=[], index=-1, coverUrl=null;
+ const fmt=v=>{if(!Number.isFinite(v))return "0:00";return Math.floor(v/60)+":"+String(Math.floor(v%60)).padStart(2,"0");};
+ function paint(){const has=index>=0&&tracks[index];const playing=!audio.paused&&!audio.ended;pl.classList.toggle("playing",playing);
+  playButtons.forEach(b=>{b.disabled=!has;b.innerHTML=playing?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>';});
+  prev.disabled=!has;next.disabled=!has;
+  title.textContent=has?tracks[index].name:"Выбери свою музыку"; islandTitle.textContent=has?tracks[index].name:"Трек не выбран";
+  meta.textContent=has?"Локальный файл · NYX":"Локальное воспроизведение · NYX"; type.textContent=has?(tracks[index].file.name.split(".").pop()||"AUDIO").toUpperCase():"MP3";
+  if(!has){cover.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg>';}
+  else if(tracks[index].cover){cover.innerHTML='';const img=document.createElement('img');img.alt='Обложка трека';img.src=tracks[index].cover;cover.appendChild(img);}
+  else{cover.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2"/></svg>';}
+  list.innerHTML="";
+  if(!tracks.length){list.innerHTML='<div class="music-hint">Добавь один или несколько аудиофайлов, чтобы начать.</div>';return;}
+  tracks.forEach((track,i)=>{const b=document.createElement("button");b.type="button";b.className=i===index?"active":"";b.textContent=(i===index?"♫  ":"")+track.name;b.addEventListener("click",()=>load(i,true));list.appendChild(b);});
+ }
+ async function readEmbeddedCover(file){
+  try{
+   const head=await file.slice(0,10).arrayBuffer(), h=new Uint8Array(head);
+   if(h.length<10||String.fromCharCode(...h.slice(0,3))!=="ID3")return null;
+   const tagSize=(h[6]<<21)|(h[7]<<14)|(h[8]<<7)|h[9];
+   const data=new Uint8Array(await file.slice(10,Math.min(file.size,10+tagSize)).arrayBuffer());
+   let pos=0;
+   while(pos+10<=data.length){
+    const id=String.fromCharCode(...data.slice(pos,pos+4));
+    if(!/^[A-Z0-9]{4}$/.test(id))break;
+    const size=(data[pos+4]<<24)|(data[pos+5]<<16)|(data[pos+6]<<8)|data[pos+7];
+    if(size<=0||pos+10+size>data.length)break;
+    if(id==="APIC"){
+     const frame=data.slice(pos+10,pos+10+size);let k=1;
+     while(k<frame.length&&frame[k]!==0)k++;
+     const mime=new TextDecoder().decode(frame.slice(1,k))||"image/jpeg";k++;
+     if(k>=frame.length)break;k++; // picture type
+     const enc=frame[0];
+     if(enc===1||enc===2){while(k+1<frame.length&&(frame[k]!==0||frame[k+1]!==0))k+=2;k+=2;}
+     else{while(k<frame.length&&frame[k]!==0)k++;k++;}
+     if(k<frame.length)return URL.createObjectURL(new Blob([frame.slice(k)],{type:mime}));
+    }
+    pos+=10+size;
+   }
+  }catch(_e){}
+  return null;
+ }
+ function load(i,autoplay){if(!tracks.length)return;index=(i+tracks.length)%tracks.length;audio.src=tracks[index].url;audio.load();paint();if(autoplay)audio.play().catch(()=>paint());}
+ function toggle(){if(index<0)return;if(audio.paused)audio.play().catch(()=>{});else audio.pause();}
+ playButtons.forEach(b=>b.addEventListener("click",toggle));
+ prev.addEventListener("click",()=>{if(index<0||!tracks.length)return;if(audio.currentTime>3){audio.currentTime=0;audio.play().catch(()=>paint());}else{load(index-1,true);}});
+ next.addEventListener("click",()=>{if(index<0||!tracks.length)return;load(index+1,true);});
+ picker.addEventListener("change",()=>{const chosen=Array.from(picker.files||[]).filter(f=>f.type.startsWith("audio/")||/\.(mp3|wav|flac|m4a|ogg|aac)$/i.test(f.name));if(!chosen.length)return;
+  tracks.forEach(t=>{URL.revokeObjectURL(t.url);if(t.cover)URL.revokeObjectURL(t.cover);});tracks=chosen.map(file=>({name:file.name.replace(/\.[^.]+$/,""),file,url:URL.createObjectURL(file),cover:null}));
+  tracks.forEach(async (track,i)=>{let art=await readEmbeddedCover(track.file);if(!art&&window.jsmediatags){await new Promise(resolve=>window.jsmediatags.read(track.file,{onSuccess:({tags})=>{const pic=tags.picture;if(pic&&pic.data&&pic.format){const bytes=new Uint8Array(pic.data);art=URL.createObjectURL(new Blob([bytes],{type:pic.format}));}},onError:()=>{}}));}if(art){track.cover=art;if(index===i)paint();}});
+  load(0,true);});
+ document.getElementById("musicVolume").addEventListener("input",e=>{audio.volume=Number(e.target.value);document.getElementById("volumeValue").textContent=Math.round(audio.volume*100)+"%";});audio.volume=.1;
+ audio.addEventListener("play",paint);audio.addEventListener("pause",paint);audio.addEventListener("ended",()=>{if(index<tracks.length-1)load(index+1,true);else paint();});
+ audio.addEventListener("loadedmetadata",()=>{duration.textContent=fmt(audio.duration);});
+ audio.addEventListener("timeupdate",()=>{current.textContent=fmt(audio.currentTime);duration.textContent=fmt(audio.duration);fill.style.width=(audio.duration?audio.currentTime/audio.duration*100:0)+"%";if(scrub)scrub.style.left=(audio.duration?audio.currentTime/audio.duration*100:0)+"%";});
+ document.getElementById("bar").addEventListener("click",e=>{if(!Number.isFinite(audio.duration)||!audio.duration)return;const r=e.currentTarget.getBoundingClientRect();audio.currentTime=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*audio.duration;});
+ window.addEventListener("pagehide",()=>tracks.forEach(t=>{URL.revokeObjectURL(t.url);if(t.cover)URL.revokeObjectURL(t.cover);}));
+ paint();
+})();
+/* Scroll reveals: animate smoothly in both directions with subtle card stagger. */
+if("IntersectionObserver" in window){
+  const revealItems = Array.from(document.querySelectorAll(".reveal"));
+  document.querySelectorAll(".grid, .roadmap").forEach(group => {
+    group.querySelectorAll(".reveal").forEach((el, idx) => {
+      el.style.transitionDelay = Math.min(idx * 55, 250) + "ms";
+    });
+  });
+  document.documentElement.classList.add("has-reveal");
+  try {
+    const syncVisible = () => {
+      const vh = window.innerHeight;
+      revealItems.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 10 && r.top < vh - 10) el.classList.add("visible");
+      });
+    };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+        else entry.target.classList.remove("visible");
+      });
+    }, {threshold: 0.02, rootMargin: "0px 0px -1% 0px"});
+    revealItems.forEach(el => observer.observe(el));
+    requestAnimationFrame(syncVisible);
+    window.addEventListener("hashchange", () => setTimeout(syncVisible, 80), { passive: true });
+  } catch (_e) {
+    document.documentElement.classList.remove("has-reveal");
+    revealItems.forEach(el => el.classList.add("visible"));
+  }
+}
+
+(() => {
+  const form=document.getElementById("demoChatForm");
+  const input=document.getElementById("demoChatInput");
+  const messages=document.getElementById("demoMessages");
+  if(!form||!input||!messages)return;
+  form.addEventListener("submit",event=>{
+    event.preventDefault();
+    const value=input.value.trim();
+    if(!value)return;
+    const bubble=document.createElement("div");
+    bubble.className="bubble mine demo-new";
+    bubble.textContent=value;
+    messages.appendChild(bubble);
+    input.value="";
+    input.focus();
+    const bubbles=messages.querySelectorAll(".bubble.demo-new");
+    if(bubbles.length>30)bubbles[0].remove();
+    messages.scrollTop=messages.scrollHeight;
+  });
+})();
+</script>
+</body>
+</html>
